@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="HelloAvalonia.MainWindow"
+        Width="{StaticResource WindowWidth}"
+        Height="{StaticResource WindowHeight}"
+        MinWidth="{StaticResource MinimumWindowWidth}"
+        MinHeight="{StaticResource MinimumWindowHeight}"
+        Background="{StaticResource WindowBackgroundBrush}">
+    <!-- Gridがウィンドウ内の余白を作り、Borderがカード状の背景を描画します。 -->
+    <Grid Margin="{StaticResource WindowContentMargin}">
+        <Border Background="{StaticResource CardBackgroundBrush}"
+                BorderBrush="{StaticResource CardBorderBrush}"
+                BorderThickness="{StaticResource CardBorderThickness}"
+                CornerRadius="{StaticResource CardCornerRadius}"
+                Padding="{StaticResource CardPadding}">
+            <!-- 縦方向に見出し、入力欄、ボタンを並べます。 -->
+            <StackPanel Spacing="{StaticResource ContentSpacing}">
+                <StackPanel Orientation="Horizontal" Spacing="{StaticResource HeaderSpacing}">
+                    <!-- 装飾用の星アイコンと、リソースから設定する見出しです。 -->
+                    <Border Width="{StaticResource IconSize}"
+                            Height="{StaticResource IconSize}"
+                            Background="{StaticResource IconBackgroundBrush}"
+                            CornerRadius="{StaticResource IconCornerRadius}">
+                        <TextBlock Text="✦"
+                                   Foreground="{StaticResource AccentBrush}"
+                                   FontSize="{StaticResource CompactFontSize}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock x:Name="HeaderText"
+                               FontSize="{StaticResource CompactFontSize}"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource PrimaryTextBrush}"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- コードビハインドからWatermarkと表示メッセージを設定します。 -->
+                <TextBox x:Name="MessageTextBox"
+                         Height="{StaticResource InputHeight}"
+                         FontSize="{StaticResource CompactFontSize}"
+                         Padding="{StaticResource InputPadding}"
+                         Background="{StaticResource InputBackgroundBrush}"
+                         BorderBrush="{StaticResource InputBorderBrush}" />
+
+                <!-- ClickイベントはMainWindow.axaml.csのハンドラーにつながります。 -->
+                <Button x:Name="ShowButton"
+                        Height="{StaticResource ButtonHeight}"
+                        FontSize="{StaticResource CompactFontSize}"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Padding="{StaticResource ButtonPadding}"
+                        Background="{StaticResource AccentBrush}"
+                        Foreground="{StaticResource ButtonTextBrush}"
+                        Click="OnShowMessageClick" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

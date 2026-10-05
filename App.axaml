@@ -1,0 +1,20 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HelloAvalonia.App"
+             RequestedThemeVariant="Default">
+    <!-- DefaultはOSのテーマ設定に追従します。固定する場合はLightまたはDarkを指定します。 -->
+
+    <!-- 画面間で共有する色・寸法などのリソース辞書を読み込みます。 -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://HelloAvalonia/Styles/UiResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <!-- FluentThemeでAvalonia標準のコントロールテーマを適用します。 -->
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+</Application>
